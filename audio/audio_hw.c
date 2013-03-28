@@ -2743,6 +2743,7 @@ static const struct {
     { AUDIO_DEVICE_OUT_SPEAKER, "speaker" },
     { AUDIO_DEVICE_OUT_WIRED_HEADSET | AUDIO_DEVICE_OUT_WIRED_HEADPHONE, "headphone" },
     { AUDIO_DEVICE_OUT_EARPIECE, "earpiece" },
+<<<<<<< HEAD
 
     { AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET, "analog-dock" },
     { AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET, "digital-dock" },
@@ -2750,6 +2751,10 @@ static const struct {
     { AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET, "dock" },
     { AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET, "dock" },
 
+=======
+    { AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET, "dock" },
+    { AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET, "dock" },
+>>>>>>> d901ecd... i9300: audio config cleanup
     { AUDIO_DEVICE_OUT_ALL_SCO, "sco-out" },
     { AUDIO_DEVICE_OUT_AUX_DIGITAL, "aux-digital" },
 
