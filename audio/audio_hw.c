@@ -438,8 +438,9 @@ static void set_incall_device(struct m0_audio_device *adev)
             device_type = SOUND_AUDIO_PATH_HANDSET;
             break;
         case AUDIO_DEVICE_OUT_SPEAKER:
-        case AUDIO_DEVICE_OUT_AUX_DIGITAL:
+        case AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET: 
         case AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET:
+        case AUDIO_DEVICE_OUT_AUX_DIGITAL:
             device_type = SOUND_AUDIO_PATH_SPEAKER;
             break;
         case AUDIO_DEVICE_OUT_WIRED_HEADSET:
@@ -576,6 +577,12 @@ static void select_output_device(struct m0_audio_device *adev)
             break;
         case AUDIO_DEVICE_OUT_ALL_SCO:
             ALOGD("%s: AUDIO_DEVICE_OUT_ALL_SCO", __func__);
+            break;
+        case AUDIO_DEVICE_OUT_USB_ACCESSORY:
+            ALOGD("%s: AUDIO_DEVICE_OUT_USB_ACCESSORY", __func__);
+            break;
+        case AUDIO_DEVICE_OUT_USB_DEVICE:
+            ALOGD("%s: AUDIO_DEVICE_OUT_USB_DEVICE", __func__);
             break;
         default:
             ALOGD("%s: AUDIO_DEVICE_OUT_ALL", __func__);
@@ -2746,6 +2753,7 @@ static const struct {
 
 
     { AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET, "analog-dock" },
+<<<<<<< HEAD
     { AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET, "digital-dock" },
 
     { AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET, "dock" },
@@ -2754,6 +2762,9 @@ static const struct {
 
     { AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET, "dock" },
     { AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET, "dock" },
+
+
+    { AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET, "analog-dock" },
 
     { AUDIO_DEVICE_OUT_ALL_SCO, "sco-out" },
     { AUDIO_DEVICE_OUT_AUX_DIGITAL, "aux-digital" },
