@@ -211,7 +211,9 @@ static void dispatchGsmBrSmsCnf(Parcel &p, RequestInfo *pRI);
 static void dispatchCdmaBrSmsCnf(Parcel &p, RequestInfo *pRI);
 static void dispatchRilCdmaSmsWriteArgs(Parcel &p, RequestInfo *pRI);
 static int responseInts(Parcel &p, void *response, size_t responselen);
+
 static int responseIntsGetPreferredNetworkType(Parcel &p, void *response, size_t responselen);
+
 static int responseStrings(Parcel &p, void *response, size_t responselen);
 static int responseStringsNetworks(Parcel &p, void *response, size_t responselen);
 static int responseStrings(Parcel &p, void *response, size_t responselen, bool network_search);
@@ -1411,6 +1413,7 @@ responseInts(Parcel &p, void *response, size_t responselen) {
     return 0;
 }
 
+<<<<<<< HEAD
 static int
 responseIntsGetPreferredNetworkType(Parcel &p, void *response, size_t responselen) {
     int numInts;
@@ -1446,6 +1449,8 @@ responseIntsGetPreferredNetworkType(Parcel &p, void *response, size_t responsele
     return 0;
 }
 
+=======
+>>>>>>> b1713a1... i9300: add opensource libril, remove ril class
 /** response is a char **, pointing to an array of char *'s
     The parcel will begin with the version */
 static int responseStringsWithVersion(int version, Parcel &p, void *response, size_t responselen) {
