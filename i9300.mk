@@ -31,12 +31,20 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Init files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/fstab.smdk4x12:root/fstab.smdk4x12 \
-    $(LOCAL_PATH)/init.smdk4x12.rc:root/init.smdk4x12.rc
+    $(LOCAL_PATH)/rootdir/fstab.smdk4x12:root/fstab.smdk4x12 \
+    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc
 
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/m0
+
+# Camera
+PRODUCT_PACKAGES += \
+    camera.smdk4x12
+
+# Sensors
+PRODUCT_PACKAGES += \
+    sensors.smdk4x12
 
 # Gps
 PRODUCT_COPY_FILES += \
@@ -44,10 +52,11 @@ PRODUCT_COPY_FILES += \
 
 # Product specific Packages
 PRODUCT_PACKAGES += \
-    GalaxyS3Settings \
+    DeviceSettings \
     libsecril-client \
     libsecril-client-sap \
-    SamsungServiceMode
+    SamsungServiceMode \
+    tinyplay
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -75,6 +84,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     com.android.nfc_extras
 
+$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
+
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=SamsungExynos4RIL \
@@ -84,7 +95,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 $(call inherit-product-if-exists, vendor/samsung/i9300/i9300-vendor.mk)
