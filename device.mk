@@ -38,6 +38,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/m0
 
+# Camera
+PRODUCT_PACKAGES += \
+    camera.smdk4x12
+
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.smdk4x12
@@ -50,7 +54,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libsecril-client \
     libsecril-client-sap \
-    SamsungServiceMode \
     tinyplay
 
 # NFC
@@ -61,14 +64,15 @@ PRODUCT_PACKAGES += \
     Nfc \
     Tag
 
-# Camera Wrapper
+# Other
 PRODUCT_PACKAGES += \
-    camera.exynos4
+	OmniTorch
 
 PRODUCT_COPY_FILES += \
     packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
     frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
+
 # NFCEE access control
 ifeq ($(TARGET_BUILD_VARIANT),user)
     NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access.xml
@@ -82,8 +86,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     com.android.nfc_extras
 
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
-
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=SamsungExynos4RIL \
@@ -93,8 +95,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    vendor/cm/prebuilt/updateme/i9300/update_me.xml:system/update_me.xml
-    
+	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+
 $(call inherit-product-if-exists, vendor/samsung/i9300/i9300-vendor.mk)

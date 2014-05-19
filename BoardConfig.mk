@@ -36,10 +36,10 @@ TARGET_RECOVERY_FSTAB := device/samsung/i9300/rootdir/fstab.smdk4x12
 RECOVERY_FSTAB_VERSION := 2
 
 # Selinux
-BOARD_SEPOLICY_DIRS += \
+BOARD_SEPOLICY_DIRS := \
     device/samsung/i9300/selinux
 
-BOARD_SEPOLICY_UNION += \
+BOARD_SEPOLICY_UNION := \
     device.te \
     domain.te \
     file.te \
@@ -53,8 +53,6 @@ BOARD_SEPOLICY_UNION += \
 
 # assert
 TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
-
-COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
 # inherit from the proprietary version
 -include vendor/samsung/i9300/BoardConfigVendor.mk
